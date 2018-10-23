@@ -1,1 +1,0 @@
-# scrooge-rails-app
