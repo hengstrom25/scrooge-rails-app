@@ -1,8 +1,3 @@
-<% if flash[:message] %>
-   <p><%= flash[:message] %></p>
-<% end %>
-
-
 <% if @user.admin %>
 	<p>ADMIN</p>
 	<h4><%= @user.name %></h4><br>
