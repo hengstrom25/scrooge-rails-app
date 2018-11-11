@@ -2,6 +2,6 @@
 <h2><%= @budget.name %></h2>
 <h3><%= @budget.amount %></h3>
 <br>
-	<%= form_for @budget do |f| %>
-		<f.submit "Go to this budget" %>
-	<% end %>
+
+<p><%= link_to "See Transactions", transaction_path(@budget) %></p>
+<p><%= link_to "Edit Budget", edit_budget_path(@budget) %></p>

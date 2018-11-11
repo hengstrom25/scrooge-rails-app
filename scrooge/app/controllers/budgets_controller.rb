@@ -6,6 +6,7 @@ class BudgetsController < ApplicationController
 	
 	def show
 		@budget = Budget.find_by(id: params[:id])
+		
 	end
 	
 	def new
@@ -17,12 +18,22 @@ class BudgetsController < ApplicationController
 		redirect_to budget_path(@budget)
 	end
 	
+	def edit
+		@budget = Budget.find_by(id: params[:id])
+	end
+	
+	def update
+		@budget = Budget.find_by(id: params[:id])
+		@budget.update(budget_params)
+		redirect_to budget_path(@budget)
+	end
+	
 	private
 	
 	def budget_params
 		params.require(:budget).permit(:name, :amount)
 	end
-	
+  
 	
 
 end
