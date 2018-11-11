@@ -1,0 +1,7 @@
+<%= link_to 'Add New Budget', new_budget_path %>
+
+<ul>
+	<% @budgets.each do |budget| %>
+		<li><%= link_to "#{budget.name}>", budget_path(budget) %></li>
+	<% end %>
+</ul>

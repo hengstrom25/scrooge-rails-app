@@ -2,8 +2,8 @@
 	<p>ADMIN</p>
 	<h4><%= @user.name %></h4><br>
 	<% else %>
-		<p>Name: <%= @user.name %></p>
+		<p>Welcome <%= @user.name %></p>
 	<% end %>	
 	
-	<%= link_to 'See budgets', budgets_path %><br>
+	<%= link_to 'See Budgets', budgets_path %><br>
 	<%= link_to 'Log Out', logout_path, method: :post %>

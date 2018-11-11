@@ -1,0 +1,7 @@
+<h1>SELECTED BUDGET</h1>
+<h2><%= @budget.name %></h2>
+<h3><%= @budget.amount %></h3>
+<br>
+	<%= form_for @budget do |f| %>
+		<f.submit "Go to this budget" %>
+	<% end %>

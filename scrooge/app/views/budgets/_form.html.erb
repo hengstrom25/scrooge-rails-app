@@ -1,0 +1,11 @@
+<h1>Budget</h1>
+<%= form_for @budget do |f| %>
+	<%= f.label :name %><br>
+	<%= f.text_field :name %><br><br>
+	
+	<%= f.label :amount %><br>
+	<%= f.number_field :amount %><br><br>
+
+	<%= f.submit %>
+	
+	<% end %>
