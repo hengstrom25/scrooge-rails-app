@@ -15,7 +15,7 @@ class BudgetsController < ApplicationController
 	
 	def create
 		@budget = Budget.create(budget_params)
-		redirect_to budget_path(@budget)
+		redirect_to budgets_path
 	end
 	
 	def edit
@@ -25,13 +25,13 @@ class BudgetsController < ApplicationController
 	def update
 		@budget = Budget.find_by(id: params[:id])
 		@budget.update(budget_params)
-		redirect_to budget_path(@budget)
+		redirect_to budgets_path(@budget)
 	end
 	
 	private
 	
 	def budget_params
-		params.require(:budget).permit(:name, :amount)
+		params.require(:budget).permit(:name, :amount, :user_id)
 	end
   
 	

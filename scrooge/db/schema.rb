@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 3) do
     t.datetime "date"
     t.integer "amount"
     t.string "description"
+    t.integer "budget_id"
   end
 
   create_table "users", force: :cascade do |t|

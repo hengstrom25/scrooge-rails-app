@@ -2,6 +2,6 @@
 
 <ul>
 	<% @budgets.each do |budget| %>
-		<li><%= link_to "#{budget.name}>", budget_path(budget) %></li>
+		<li><%= link_to "#{budget.name}", budget_path(budget) %></li>
 	<% end %>
 </ul>

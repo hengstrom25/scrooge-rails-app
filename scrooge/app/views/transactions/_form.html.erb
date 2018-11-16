@@ -1,0 +1,18 @@
+<h1>Transaction</h1>
+<%= form_for @transaction do |f| %>
+	<%= f.label :name %><br>
+	<%= f.text_field :name %><br><br>
+	
+	<%= f.label :date %><br>
+	<%= f.date_field :date %><br><br>
+	
+	<%= f.label :amount %><br>
+	<%= f.number_field :amount %><br><br>
+	
+	<%= f.label :description %><br>
+	<%= f.text_field :description %><br><br>
+
+	<%= f.submit %>
+	
+	<% end %>
+	

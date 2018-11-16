@@ -1,6 +1,6 @@
 class TransactionsController < ApplicationController
 	def index
-		@transaction = Transaction.all
+		@transactions = Transaction.all
 	end
 	
 	def show
@@ -12,8 +12,14 @@ class TransactionsController < ApplicationController
 	end
 	
 	def create
-		@transaction = Transaction.create
-		redirect_to transaction_path 
+		@transaction = Transaction.create(transaction_params)
+		redirect_to transactions_path(@transaction.budget)
+	end
+	
+	private
+	
+	def transaction_params
+		params.require(:transaction).permit(:name, :date, :amount, :description, :budget_id)
 	end
 
 end
