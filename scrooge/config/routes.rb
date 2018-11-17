@@ -5,10 +5,14 @@ Rails.application.routes.draw do
   post '/signin' => 'sessions#create'
 
   post 'logout', to: 'sessions#destroy'
-  resources :users, only: [:new, :create, :show]
+  
+  resources :users do #only: [:new, :create, :show]
+  	resources :budgets
+  end
 
-	delete 'logout' => 'sessions#destroy'
-	resources :users
-	resources :budgets
+delete 'logout' => 'sessions#destroy'
+	
+	resources :budgets 
+
 	resources :transactions
 end

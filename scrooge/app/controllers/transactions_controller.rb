@@ -12,14 +12,14 @@ class TransactionsController < ApplicationController
 	end
 	
 	def create
-		@transaction = Transaction.create(transaction_params)
+		@transaction = Transaction.create!(transaction_params)
 		redirect_to transactions_path(@transaction.budget)
 	end
 	
 	private
 	
 	def transaction_params
-		params.require(:transaction).permit(:name, :date, :amount, :description, :budget_id)
+		params.require(:transaction).permit(:name, :date, :amount, :description, :budget_id, :user_id)
 	end
 
 end

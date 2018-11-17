@@ -1,6 +1,6 @@
 class Transaction < ActiveRecord::Base
-	belongs_to :budget
-	belongs_to :user
+	belongs_to :budget, optional: true
+	belongs_to :user, optional: true
 	
 	def transaction
 		if over_budget
