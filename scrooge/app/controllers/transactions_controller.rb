@@ -16,6 +16,16 @@ class TransactionsController < ApplicationController
 		redirect_to transactions_path(@transaction.budget)
 	end
 	
+	def edit
+		@transaction = Transaction.find_by(id: params[:id])
+	end
+	
+	def update
+		@transaction = Transaction.find_by(id: params[:id])
+		@transaction.update(transaction_params)
+		redirect_to transactions_path(@transaction)
+	end
+	
 	private
 	
 	def transaction_params
