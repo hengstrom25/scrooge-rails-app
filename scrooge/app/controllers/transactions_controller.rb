@@ -1,7 +1,8 @@
 class TransactionsController < ApplicationController
 require 'pry'
 	def index
-		@transactions = Transaction.all
+		@transactions = Transaction.where(params[:budget_id])
+		#changed search to only use :budget_id params
 		@budget = Budget.find_by(id: params[:budget_id])
 	end
 	
@@ -30,12 +31,19 @@ require 'pry'
 	
 	def edit
 		@transaction = Transaction.find_by(id: params[:id])
+		redirect_to transactions_path(@budget, :budget_id => params[:transaction][:budget_id])
 	end
 	
 	def update
 		@transaction = Transaction.find_by(id: params[:id])
 		@transaction.update(transaction_params)
 		redirect_to transactions_path(@budget, :budget_id => params[:transaction][:budget_id])
+	end
+	
+	def destroy
+		@budget = Budget.find_by(id: params[:budget_id])
+		Transaction.find(params[:id]).destroy
+		redirect_to budget_path(@budget)
 	end
 	
 	private

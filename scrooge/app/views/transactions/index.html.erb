@@ -1,8 +1,7 @@
 	<h3>Transactions for <%=@budget.name%></h3>
-	<p>Click on a transaction to see more details</p>
 	
 	<table class="table">
-	<thead><td>Name</td><td>Date</td><td>Amount</td><td><Description</td>
+	<thead><td>Name</td><td>Date</td><td>Amount</td><td>Description</td>
 		
 	<% @transactions.each do |transaction| %>
 		<tr>
@@ -16,7 +15,7 @@
 	<p></p>
 	<p><%= link_to "Add Transaction", new_transaction_path(:budget_id => @budget.id) %></p>
 	
-	<p><%= link_to "Back to Budget", budgets_path(@budget)%></p>
+	<p><%= link_to "Back to Budget", budget_path(@budget.id)%></p>
 
 
 

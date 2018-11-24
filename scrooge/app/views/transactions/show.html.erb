@@ -4,5 +4,6 @@
 <p>Description: <%= @transaction.description %></p><br>
 
 <p><%= link_to "Edit Transaction", edit_transaction_path(@transaction) %></p>
+<p><%= link_to "Delete Transaction", transaction_path(@transaction), method: :delete, data: { confirm: 'Are you sure?' } %></p>
 
 

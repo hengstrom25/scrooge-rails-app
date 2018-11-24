@@ -1,7 +1,7 @@
-<%= link_to 'Add New Budget', new_budget_path %>
-
-<ul>
+<h2>Your Budgets</h2>
 	<% @budgets.each do |budget| %>
-		<li><%= link_to "#{budget.name}", budget_path(budget) %></li>
+	<h3><%= link_to "#{budget.name}", budget_path(budget) %></h3>
 	<% end %>
-</ul>
+	<p></p>
+	<%= link_to 'Add New Budget', new_budget_path %>
+
