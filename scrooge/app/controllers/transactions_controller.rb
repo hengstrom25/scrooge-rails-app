@@ -18,11 +18,11 @@ require 'pry'
 	
 	def create
 		@transaction = Transaction.new(transaction_params)
-		@budget = Budget.find_by(id: params[:budget_id])
+		#@budget = Budget.find_by(id: params[:budget_id])
 		#@transaction.user_id = current_user.id if current_user
 		#@transaction.budget_id = params[:budget_id]
 		if @transaction.save
-			redirect_to transactions_path(@budget, :budget_id => @budget.id)
+			redirect_to transactions_path(@budget, :budget_id => params[:transaction][:budget_id])
 		else
 			render 'new'
 		end
