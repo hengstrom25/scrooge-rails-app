@@ -1,7 +1,7 @@
-<h1><%= @transaction.name %></h1>
-<p><%= @transaction.date %><p>
-<p><%= @transaction.amount %></p>
-<p><%= @transaction.description %></p><br>
+<h1>Name: <%= @transaction.name %></h1>
+<p>Date: <%= @transaction.date %><p>
+<p>Amount: <%= @transaction.amount %></p>
+<p>Description: <%= @transaction.description %></p><br>
 
 <p><%= link_to "Edit Transaction", edit_transaction_path(@transaction) %></p>
 

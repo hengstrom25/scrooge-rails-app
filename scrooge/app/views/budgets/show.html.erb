@@ -1,6 +1,7 @@
-<h1>SELECTED BUDGET</h1>
-<h2><%= @budget.name %></h2>
-<h3><%= @budget.amount %></h3>
+<p>SELECTED BUDGET</p>
+<h2>Budget Name: <%=@budget.name %></h2>
+<h3>Starting Amount: <%=@budget.amount %></h3>
+<h3>Current Amount: </h3>
 <br>
 
 <p><%= link_to "See Transactions", transactions_path(@budget, :budget_id => @budget.id) %></p>

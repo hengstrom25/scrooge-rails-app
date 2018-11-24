@@ -35,7 +35,7 @@ require 'pry'
 	def update
 		@transaction = Transaction.find_by(id: params[:id])
 		@transaction.update(transaction_params)
-		redirect_to transactions_path(@transaction)
+		redirect_to transactions_path(@budget, :budget_id => params[:transaction][:budget_id])
 	end
 	
 	private

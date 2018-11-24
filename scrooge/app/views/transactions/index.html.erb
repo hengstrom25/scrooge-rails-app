@@ -1,10 +1,22 @@
-
-	<p><%= link_to "Add Transaction", new_transaction_path(:budget_id => @budget.id) %></p>
+	<h3>Transactions for <%=@budget.name%></h3>
+	<p>Click on a transaction to see more details</p>
+	
+	<table class="table">
+	<thead><td>Name</td><td>Date</td><td>Amount</td><td><Description</td>
 		
 	<% @transactions.each do |transaction| %>
-		<li><%= link_to "#{transaction.name}", transaction_path(transaction) %></li>
-	<% end %>
+		<tr>
+		<td><%= transaction.name %></td>
+		<td><%= transaction.date %></td>
+		<td><%= transaction.amount %></td>
+		<td><%= transaction.description %></td>
+		<td><%= link_to "Edit or Delete", transaction_path(transaction) %></td>
+		<%end%>
+	</table>
+	<p></p>
+	<p><%= link_to "Add Transaction", new_transaction_path(:budget_id => @budget.id) %></p>
 	
 	<p><%= link_to "Back to Budget", budgets_path(@budget)%></p>
+
 
 
