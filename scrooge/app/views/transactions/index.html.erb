@@ -1,7 +1,10 @@
-	<%= link_to "Add Transaction", new_transaction_path %>
+
+	<p><%= link_to "Add Transaction", new_transaction_path(:budget_id => @budget.id) %></p>
 		
 	<% @transactions.each do |transaction| %>
 		<li><%= link_to "#{transaction.name}", transaction_path(transaction) %></li>
 	<% end %>
+	
+	<p><%= link_to "Back to Budget", budgets_path(@budget)%></p>
 
 

@@ -1,4 +1,4 @@
-<h1>Transaction</h1>
+<%= @transaction.budget_id%> x
 <%= form_for @transaction do |f| %>
 	<%= f.label :name %><br>
 	<%= f.text_field :name %><br><br>
@@ -11,8 +11,14 @@
 	
 	<%= f.label :description %><br>
 	<%= f.text_field :description %><br><br>
-
+	
+	<%= f.hidden_field :budget_id %>
+	
 	<%= f.submit %>
 	
 	<% end %>
+	
+	
+	
+	
 	

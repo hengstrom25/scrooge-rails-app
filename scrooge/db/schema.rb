@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 3) do
     t.integer "amount"
     t.string "description"
     t.integer "budget_id"
-    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

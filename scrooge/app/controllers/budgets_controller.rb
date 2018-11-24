@@ -10,13 +10,13 @@ class BudgetsController < ApplicationController
 	end
 	
 	def new
-		get_user
+		#get_user
 		@budget = Budget.new
 	end
 	
 	def create
-		get_user
-		@budget = Budget.create(budget_params)
+		#get_user
+		@budget = Budget.new(budget_params)
 		@budget.user_id = current_user.id if current_user
 		if @budget.save
 			redirect_to budgets_path(@budget)
@@ -38,7 +38,7 @@ class BudgetsController < ApplicationController
 	private
 	
 	def budget_params
-		params.require(:budget).permit(:name, :amount, :user_id)
+		params.require(:budget).permit(:name, :amount)
 	end
 	
 	def get_user

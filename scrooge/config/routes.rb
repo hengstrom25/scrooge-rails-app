@@ -12,7 +12,10 @@ Rails.application.routes.draw do
 
 delete 'logout' => 'sessions#destroy'
 	
-	resources :budgets 
+	resources :budgets do
+		resources :transactions
+	end
 
 	resources :transactions
+	
 end
