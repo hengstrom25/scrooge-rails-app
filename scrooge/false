@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20181124233531_add_isdeposit_to_transactions.rb

@@ -19,11 +19,13 @@ ActiveRecord::Schema.define(version: 3) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.string "name"
+    t.string "category"
     t.datetime "date"
     t.integer "amount"
     t.string "description"
     t.integer "budget_id"
+    t.integer "user_id"
+    t.boolean "is_deposit", default: false
   end
 
   create_table "users", force: :cascade do |t|
