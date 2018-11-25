@@ -8,7 +8,11 @@ require 'pry'
 		amt = self.amount
 		@transactions = Transaction.where(:budget_id => self.id)
 		@transactions.each do |transaction|
-		amt -= transaction.amount
+			if transaction.is_deposit
+				amt += transaction.amount
+			else
+				amt -= transaction.amount
+			end
 		end
 		amt
 	end

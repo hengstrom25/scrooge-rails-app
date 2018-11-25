@@ -41,15 +41,17 @@ require 'pry'
 	end
 	
 	def destroy
-		@budget = Budget.find_by(id: params[:budget_id])
-		Transaction.find(params[:id]).destroy
-		redirect_to budget_path(@budget)
+		@transaction = Transaction.find_by(id: params[:id])
+		#@budget = Budget.find_by(id: @transaction.budget_id)
+		budget_id = @transaction.budget_id
+		@transaction.destroy
+		redirect_to transactions_path(:budget_id => budget_id)
 	end
 	
 	private
 	
 	def transaction_params
-		params.require(:transaction).permit(:name, :date, :amount, :description, :budget_id)
+		params.require(:transaction).permit(:category, :date, :amount, :description, :budget_id, :is_deposit)
 	end
 
 end

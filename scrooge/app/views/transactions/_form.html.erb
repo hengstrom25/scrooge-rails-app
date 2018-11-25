@@ -13,6 +13,9 @@
 	<%= f.label :description %><br>
 	<%= f.text_field :description %><br><br>
 	
+	<%= f.label :is_deposit, 'Check if deposit (admin only)' %><br>
+	<%= f.check_box :is_deposit %><br><br>
+	
 	<%= f.hidden_field :budget_id %>
 	
 	<%= f.submit %>
