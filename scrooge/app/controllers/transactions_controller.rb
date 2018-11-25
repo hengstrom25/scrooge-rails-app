@@ -1,9 +1,9 @@
 class TransactionsController < ApplicationController
 require 'pry'
 	def index
-		@transactions = Transaction.where(params[:budget_id])
-		#changed search to only use :budget_id params
 		@budget = Budget.find_by(id: params[:budget_id])
+		@transactions = Transaction.where(:budget_id => @budget.id)
+		#changed search to only use :budget_id params
 	end
 	
 	def show
@@ -19,9 +19,6 @@ require 'pry'
 	
 	def create
 		@transaction = Transaction.new(transaction_params)
-		#@budget = Budget.find_by(id: params[:budget_id])
-		#@transaction.user_id = current_user.id if current_user
-		#@transaction.budget_id = params[:budget_id]
 		if @transaction.save
 			redirect_to transactions_path(@budget, :budget_id => params[:transaction][:budget_id])
 		else

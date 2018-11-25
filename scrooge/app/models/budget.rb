@@ -1,8 +1,8 @@
 class Budget < ActiveRecord::Base
-require 'pry'
+
+	has_and_belongs_to_many :users
 	has_many :transactions
-	belongs_to :user
-	#has_many :users, through: :transactions
+
 	
 	def current_amount
 		amt = self.amount
