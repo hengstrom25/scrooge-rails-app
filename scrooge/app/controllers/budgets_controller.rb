@@ -15,10 +15,12 @@ class BudgetsController < ApplicationController
 	end
 	
 	def create
-		#get_user
 		@budget = Budget.new(budget_params)
 		#@budget.user_id = current_user.id if current_user
 		if @budget.save
+			#user_id = current_user.id
+			#current_user.budgets << @budget
+			@budget.users << current_user
 			redirect_to budgets_path(@budget)
 		else
 			render 'new'
