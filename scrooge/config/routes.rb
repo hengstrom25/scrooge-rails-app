@@ -14,8 +14,11 @@ delete 'logout' => 'sessions#destroy'
 	
 	resources :budgets do
 		resources :transactions
+		get 'users', to: 'budgets#users'
 	end
 
 	resources :transactions
+	
+	
 	
 end

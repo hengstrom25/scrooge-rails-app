@@ -37,6 +37,11 @@ class BudgetsController < ApplicationController
 		redirect_to budgets_path(@budget)
 	end
 	
+	def users
+		@budget = Budget.find_by(id: params[:budget_id])
+		@users = @budget.users
+	end
+	
 	private
 	
 	def budget_params
