@@ -4,6 +4,10 @@ require 'pry'
 	belongs_to :user
 	#has_many :users, through: :transactions
 	
+	validates :name, presence: true
+	validates :amount, presence: true
+	
+	
 	def current_amount
 		amt = self.amount
 		@transactions = Transaction.where(:budget_id => self.id)
