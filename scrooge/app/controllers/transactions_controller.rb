@@ -23,7 +23,7 @@ require 'pry'
 		#@transaction.user_id = current_user.id if current_user
 		#@transaction.budget_id = params[:budget_id]
 		if @transaction.save
-			redirect_to transactions_path(@budget, :budget_id => params[:transaction][:budget_id])
+			redirect_to budget_transactions_path(params[:transaction][:budget_id])
 		else
 			render 'new'
 		end
