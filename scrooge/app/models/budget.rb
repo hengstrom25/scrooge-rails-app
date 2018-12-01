@@ -2,7 +2,10 @@ class Budget < ActiveRecord::Base
 require 'pry'
 	has_many :transactions
 	belongs_to :user
-	#has_many :users, through: :transactions
+	
+	validates :name, presence: true
+	validates :amount, presence: true 
+	
 	
 	def current_amount
 		amt = self.amount
