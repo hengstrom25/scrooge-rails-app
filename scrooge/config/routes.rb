@@ -19,8 +19,11 @@ delete 'logout' => 'sessions#destroy'
 
 	resources :transactions
 	
+<<<<<<< HEAD
 	devise_for :users
 	
+=======
+>>>>>>> c24e02caf0d858aa77a0be83c7348b2329bfa38a
 	
 	
 end

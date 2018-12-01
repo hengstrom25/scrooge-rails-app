@@ -3,10 +3,13 @@ class Budget < ActiveRecord::Base
 	has_and_belongs_to_many :users
 	has_many :transactions
 
+<<<<<<< HEAD
 	
 	validates :name, presence: true
 	validates :amount, presence: true
 	
+=======
+>>>>>>> c24e02caf0d858aa77a0be83c7348b2329bfa38a
 	
 	def current_amount
 		amt = self.amount
