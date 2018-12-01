@@ -8,5 +8,7 @@ class User < ActiveRecord::Base
 	validates :user_name, presence: true
 	validates :password, presence: true
 	
+	devise :omniauthable, omniauth_providers: %i[facebook]
+	
 
 end

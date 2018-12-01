@@ -1,7 +1,7 @@
 class BudgetsController < ApplicationController
 
 	def index
-		@budgets = Budget.all
+		@budgets = Budget.joins(:users).where(:users => { id: current_user.id })
 	end
 	
 	def show
@@ -15,10 +15,12 @@ class BudgetsController < ApplicationController
 	end
 	
 	def create
-		#get_user
 		@budget = Budget.new(budget_params)
-		@budget.user_id = current_user.id if current_user
+		#@budget.user_id = current_user.id if current_user
 		if @budget.save
+			#user_id = current_user.id
+			#current_user.budgets << @budget
+			@budget.users << current_user
 			redirect_to budgets_path(@budget)
 		else
 			render 'new'
@@ -33,6 +35,11 @@ class BudgetsController < ApplicationController
 		@budget = Budget.find_by(id: params[:id])
 		@budget.update(budget_params)
 		redirect_to budgets_path(@budget)
+	end
+	
+	def users
+		@budget = Budget.find_by(id: params[:budget_id])
+		@users = @budget.users
 	end
 	
 	private

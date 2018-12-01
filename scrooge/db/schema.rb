@@ -10,12 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 3) do
+ActiveRecord::Schema.define(version: 2018_12_01_173531) do
 
   create_table "budgets", force: :cascade do |t|
     t.string "name"
     t.integer "amount"
-    t.integer "user_id"
+  end
+
+  create_table "budgets_users", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "budget_id", null: false
+    t.boolean "owner", default: false
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -34,6 +39,8 @@ ActiveRecord::Schema.define(version: 3) do
     t.string "email"
     t.string "password_digest"
     t.boolean "admin", default: false
+    t.string "provider"
+    t.string "uid"
   end
 
 end
