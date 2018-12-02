@@ -13,13 +13,13 @@ require 'pry'
         	u.email= auth_hash['info']['email']
         	u.password= SecureRandom.hex
         	end
-    	login
-    	redirect_to user_path(@user)
-    	else
+        	login
+        else
   			@user = User.find_by(user_name: params[:user][:user_name])
   			if @user && @user.authenticate(params[:user][:password])
   				login
   			else
+  				flash[:alert] = "Please make sure you have logged in correctly. If you do not have a login, please create a new account."
   				redirect_to signin_path
   			end
   		end
@@ -37,9 +37,9 @@ require 'pry'
   	redirect_to user_path(@user)
   end
  
-  def auth
-    request.env['omniauth.auth']
-  end
+  #def auth
+    #request.env['omniauth.auth']
+  #end
 end
 
 
