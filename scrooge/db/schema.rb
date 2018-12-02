@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 3) do
+ActiveRecord::Schema.define(version: 2018_12_01_225805) do
 
   create_table "budgets", force: :cascade do |t|
     t.string "name"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 3) do
     t.string "email"
     t.string "password_digest"
     t.boolean "admin", default: false
+    t.integer "uid"
   end
 
 end

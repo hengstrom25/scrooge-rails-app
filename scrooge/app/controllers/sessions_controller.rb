@@ -1,16 +1,27 @@
 class SessionsController < ApplicationController
+require 'pry'
 
     def new
       @user = User.new
     end
  
     def create
-  		@user = User.find_by(user_name: params[:user][:user_name])
-  		if @user && @user.authenticate(params[:user][:password])
-  			session[:user_id] = @user.id
-  			redirect_to user_path(@user)
-  		else
-  			redirect_to signin_path
+    	auth_hash = request.env['omniauth.auth']
+    	if auth_hash
+      		@user = User.find_or_create_by(uid: auth_hash['uid']) do |u|
+        	u.name= auth_hash['info']['name']
+        	u.email= auth_hash['info']['email']
+        	u.password= SecureRandom.hex
+        	end
+    	login
+    	redirect_to user_path(@user)
+    	else
+  			@user = User.find_by(user_name: params[:user][:user_name])
+  			if @user && @user.authenticate(params[:user][:password])
+  				login
+  			else
+  				redirect_to signin_path
+  			end
   		end
     end
     
@@ -19,4 +30,16 @@ class SessionsController < ApplicationController
       redirect_to root_path
     end
   
+  private
+  
+  def login
+  	session[:user_id] = @user.id
+  	redirect_to user_path(@user)
+  end
+ 
+  def auth
+    request.env['omniauth.auth']
+  end
 end
+
+

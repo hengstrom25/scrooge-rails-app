@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get '/signin' => 'sessions#new'
   post '/signin' => 'sessions#create'
+  get '/auth/facebook/callback' => 'sessions#create'
 
   post 'logout', to: 'sessions#destroy'
   
