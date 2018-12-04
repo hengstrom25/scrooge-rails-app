@@ -1,6 +1,6 @@
 class Transaction < ActiveRecord::Base
 	belongs_to :budget
-	#belongs_to :user
+	has_many :categories
 	
 	validates :category, presence: true
 	validates :date, presence: true
