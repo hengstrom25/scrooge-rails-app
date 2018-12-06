@@ -14,6 +14,7 @@ require 'pry'
 	def new
 		@transaction = Transaction.new
 		@budget = Budget.find_by(id: params[:budget_id])
+		@categories = Category.all
 		@transaction.budget_id = @budget.id
 	end
 	

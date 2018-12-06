@@ -18,6 +18,9 @@ delete 'logout' => 'sessions#destroy'
 		resources :transactions
 	end
 
-	resources :transactions
+	resources :transactions do
+		resources :categories
+	end
 	
+	resources :categories
 end

@@ -1,4 +1,3 @@
 class Category
-	has_many :transactions
-
+	has_and_belongs_to_many :transactions, :join_table => 'transaction_categories'
 end
