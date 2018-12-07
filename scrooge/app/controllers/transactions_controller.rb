@@ -52,7 +52,7 @@ require 'pry'
 	private
 	
 	def transaction_params
-		params.require(:transaction).permit(:category, :date, :amount, :description, :budget_id, :is_deposit)
+		params.require(:transaction).permit(:category, :date, :amount, :description, :budget_id, :is_deposit, category_ids:[], categories_attributes: [:name])
 	end
 
 end

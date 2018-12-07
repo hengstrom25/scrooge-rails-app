@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 5) do
     t.integer "user_id"
   end
 
-  create_table "category", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
     t.string "name"
   end
 
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 5) do
     t.integer "amount"
     t.string "description"
     t.integer "budget_id"
-    t.integer "user_id"
     t.boolean "is_deposit", default: false
   end
 
