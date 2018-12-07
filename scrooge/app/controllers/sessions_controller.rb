@@ -15,7 +15,7 @@ require 'pry'
         	end
         	login
         else
-  			@user = User.find_by(user_name: params[:user][:user_name])
+  			@user = User.find_by(name: params[:user][:name])
   			if @user && @user.authenticate(params[:user][:password])
   				login
   			else

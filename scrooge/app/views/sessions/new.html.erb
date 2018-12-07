@@ -1,7 +1,7 @@
 <%= form_for @user, url: signin_path do |f| %>
 
- <%= f.label :id, "User name:" %><br>
-<%= f.text_field :user_name %><br>
+ <%= f.label :id, "Name:" %><br>
+<%= f.text_field :name %><br>
  <br>
  <%= f.label :password, "Your password:" %><br>
 <%= f.password_field :password %><br><br>
