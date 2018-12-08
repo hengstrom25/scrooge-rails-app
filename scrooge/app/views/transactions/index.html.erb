@@ -6,7 +6,7 @@
 		
 	<% @transactions.each do |transaction| %>
 		<tr>
-		<td><%= @category.name %></td>
+		<td><%= @transaction_category.name %></td>
 		<td><%= transaction.date %></td>
 		<td><%= transaction.amount %></td>
 		<td><%= transaction.description %></td>

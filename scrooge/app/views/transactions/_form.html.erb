@@ -2,7 +2,7 @@
 <%= form_for @transaction do |f| %>
 
 	<%= f.label :category %><br>
-	<%= f.collection_select :category_ids, Category.all, :id, :name %><br><br>
+	<%= f.collection_select :category_id, Category.all, :id, :name %><br><br>
 	
 	<%= f.label :date %><br>
 	<%= f.date_field :date %><br><br>

@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 5) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
+    t.integer "transaction_id"
   end
 
   create_table "transaction_category", force: :cascade do |t|
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(version: 5) do
     t.integer "amount"
     t.string "description"
     t.integer "budget_id"
+    t.integer "category_id"
     t.boolean "is_deposit", default: false
   end
 
