@@ -1,8 +1,5 @@
 
 <%= form_for @transaction do |f| %>
-
-	<%= f.label :category %><br>
-	<%= f.collection_select :category_id, Category.all, :id, :name %><br><br>
 	
 	<%= f.label :date %><br>
 	<%= f.date_field :date %><br><br>
@@ -13,7 +10,7 @@
 	<%= f.label :description %><br>
 	<%= f.text_field :description %><br><br>
 	
-	<%= f.label :is_deposit, 'Check if deposit (admin only)' %><br>
+	<%= f.label :is_deposit, 'Check if deposit' %><br>
 	<%= f.check_box :is_deposit %><br><br>
 	
 	<%= f.hidden_field :budget_id %>

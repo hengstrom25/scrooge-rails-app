@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 5) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.datetime "date"
+    t.date "date"
     t.decimal "amount"
     t.string "description"
     t.integer "budget_id"

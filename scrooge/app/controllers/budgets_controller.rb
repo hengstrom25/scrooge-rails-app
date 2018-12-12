@@ -1,7 +1,7 @@
 class BudgetsController < ApplicationController
 
 	def index
-		@budgets = Budget.all
+		@budgets = Budget.where(user_id: current_user.id)
 	end
 	
 	def show

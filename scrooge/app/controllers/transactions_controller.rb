@@ -4,7 +4,6 @@ require 'pry'
 		@transactions = Transaction.where(params[:budget_id])
 		#changed search to only use :budget_id params
 		@budget = Budget.find_by(id: params[:budget_id])
-		@transaction_category = Category.all#find_by(id: params[:transaction][:category_id])
 	end
 	
 	def show
@@ -15,7 +14,7 @@ require 'pry'
 	def new
 		@transaction = Transaction.new
 		@budget = Budget.find_by(id: params[:budget_id])
-		@categories = Category.all
+		@items = Item.all
 		@transaction.budget_id = @budget.id
 	end
 	

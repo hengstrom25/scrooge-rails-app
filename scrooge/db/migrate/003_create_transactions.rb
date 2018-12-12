@@ -1,7 +1,7 @@
 class CreateTransactions < ActiveRecord::Migration[4.2]
   def change
     create_table :transactions do |t|
-      t.datetime :date
+      t.date :date
       t.decimal :amount
       t.string :description
       t.integer :budget_id

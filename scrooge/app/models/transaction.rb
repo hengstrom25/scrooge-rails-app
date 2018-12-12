@@ -1,7 +1,7 @@
 class Transaction < ActiveRecord::Base
 	belongs_to :budget
-	has_many :items
-	has_many :categories, through: :items
+	has_many :transaction_items
+	has_many :items, through: :transaction_items
 	
 	
 
