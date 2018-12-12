@@ -3,7 +3,7 @@
 <p>Amount: <%= @transaction.amount %></p>
 <p>Description: <%= @transaction.description %></p><br>
 
-<%= @transaction.transaction_items.each do |t_item| %>
+<% @transaction.transaction_items.each do |t_item| %>
 <%= t_item.item.name %><p>
 <%= t_item.quantity %><p>
 <%= t_item.unit_amount %><p>
