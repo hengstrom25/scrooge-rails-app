@@ -14,27 +14,26 @@ ActiveRecord::Schema.define(version: 5) do
 
   create_table "budgets", force: :cascade do |t|
     t.string "name"
-    t.integer "amount"
+    t.decimal "amount"
     t.integer "user_id"
   end
 
-  create_table "categories", force: :cascade do |t|
+  create_table "items", force: :cascade do |t|
     t.string "name"
-    t.integer "transaction_id"
   end
 
-  create_table "transaction_category", force: :cascade do |t|
+  create_table "transaction_items", force: :cascade do |t|
     t.integer "transaction_id"
-    t.integer "category_id"
+    t.integer "item_id"
     t.integer "quantity"
+    t.decimal "unit_amount"
   end
 
   create_table "transactions", force: :cascade do |t|
     t.datetime "date"
-    t.integer "amount"
+    t.decimal "amount"
     t.string "description"
     t.integer "budget_id"
-    t.integer "category_id"
     t.boolean "is_deposit", default: false
   end
 

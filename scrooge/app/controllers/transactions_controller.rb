@@ -24,7 +24,7 @@ require 'pry'
 		#@budget = Budget.find_by(id: params[:budget_id])
 		#@transaction.user_id = current_user.id if current_user
 		#@transaction.budget_id = params[:budget_id]
-		@transaction.categories << Category.find_by(id: params[:transaction][:category_id])
+		#category << Category.find_by(id: params[:transaction][:category_id])
 		if @transaction.save
 			redirect_to transactions_path(@budget, :budget_id => params[:transaction][:budget_id])
 		else
