@@ -1,7 +1,8 @@
-<h1>New Category</h1>
-<%= form_for @category do |f| %>
+<h3>Transaction Items</h3>
+<p></p>
+<%= form_for @item do |f| %>
 	
-	<%= f.label :name %><br>
+	<%= f.label :name, 'Enter New Item' %><br>
 	<%= f.text_field :name %><br><br>
 
 	<%= f.submit %>

@@ -9,13 +9,12 @@
 		<td><%= transaction.date %></td>
 		<td><%= transaction.amount %></td>
 		<td><%= transaction.description %></td>
-		<td><%= link_to "Edit or Delete", transaction_path(transaction) %></td>
+		<td><%= link_to "See Details", transaction_path(transaction) %></td>
 		<%end%>
 	</table>
 	<p></p>
 	<h3>Current Balance: <%=@budget.current_amount%></h3>
 	<p>
-	<p><%= link_to "Add Category", new_category_path %></p>
 	<p><%= link_to "Add Transaction", new_transaction_path(:budget_id => @budget.id) %></p>
 	
 	<p><%= link_to "Back to Budget", budget_path(@budget.id)%></p>

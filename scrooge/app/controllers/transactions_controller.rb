@@ -20,10 +20,6 @@ require 'pry'
 	
 	def create
 		@transaction = Transaction.new(transaction_params)
-		#@budget = Budget.find_by(id: params[:budget_id])
-		#@transaction.user_id = current_user.id if current_user
-		#@transaction.budget_id = params[:budget_id]
-		#category << Category.find_by(id: params[:transaction][:category_id])
 		if @transaction.save
 			redirect_to transactions_path(@budget, :budget_id => params[:transaction][:budget_id])
 		else
@@ -44,7 +40,6 @@ require 'pry'
 	
 	def destroy
 		@transaction = Transaction.find_by(id: params[:id])
-		#@budget = Budget.find_by(id: @transaction.budget_id)
 		budget_id = @transaction.budget_id
 		@transaction.destroy
 		redirect_to transactions_path(:budget_id => budget_id)
