@@ -6,3 +6,4 @@
 
 <p><%= link_to "See Transactions", transactions_path(@budget, :budget_id => @budget.id) %></p>
 <p><%= link_to "Edit Budget", edit_budget_path(@budget) %></p>
+<p><%= link_to "Delete this Budget", budget_path(@budget), method: :delete, data: { confirm: 'Are you sure you want to delete this budget? All of the transactions associated with this budget will also be deleted.' } %></p>
