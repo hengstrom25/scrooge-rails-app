@@ -1,7 +1,10 @@
 class TransactionItemsController < ApplicationController
 
 	def new
-		@transaction_item = TransactionItem.new(transaction_item_params)
+		@transaction_item = TransactionItem.new
+		@transaction = Transaction.find_by(id: params[:transaction_id])
+		@items = Item.all
+		@transaction_item.transaction_id = @transaction.id
 	end
 	
 	def create

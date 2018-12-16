@@ -20,9 +20,10 @@ delete 'logout' => 'sessions#destroy'
 
 	resources :transactions do
 		resources :items
+		resources :transaction_items
 	end
 	
-	resources :items
+	#resources :items
 	
-	resources :transaction_items
+
 end
