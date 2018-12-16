@@ -2,10 +2,17 @@
 <p></p>
 <%= form_for @transaction_item do |f| %>
 	
-	<%= f.label :name, 'Enter New Item' %><br>
-	<%= f.text_field :name %>
-	<%= f.collection_select :item_id, Item.all, :id, :name %><br><br>
+	<p>Select Item Type:
+	<%= f.collection_select :item_id, Item.all, :id, :name%></p><br>
+	
+	<%= f.label :quantity %><br>
+	<%= f.number_field :quantity %><br><br>
+	
+	<%= f.label :unit_amount %><br>
+	<%= f.number_field :unit_amount %><br><br>
 
-	<%= f.submit %>
+	<%= f.submit "Add Item" %>
 	
 	<% end %>
+	
+		
