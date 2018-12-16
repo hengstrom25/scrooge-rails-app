@@ -1,0 +1,11 @@
+<h3>Transaction Items</h3>
+<p></p>
+<%= form_for @transaction_item do |f| %>
+	
+	<%= f.label :name, 'Enter New Item' %><br>
+	<%= f.text_field :name %>
+	<%= f.collection_select :item_id, Item.all, :id, :name %><br><br>
+
+	<%= f.submit %>
+	
+	<% end %>

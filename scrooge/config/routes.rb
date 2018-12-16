@@ -23,4 +23,6 @@ delete 'logout' => 'sessions#destroy'
 	end
 	
 	resources :items
+	
+	resources :transaction_items
 end
