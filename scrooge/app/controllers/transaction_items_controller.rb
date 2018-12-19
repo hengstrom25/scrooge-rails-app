@@ -3,7 +3,7 @@ class TransactionItemsController < ApplicationController
 	def new
 		@transaction_item = TransactionItem.new
 		@transaction = Transaction.find_by(id: params[:transaction_id])
-		@items = Item.all
+		@items = Item.order('name ASC')
 		@transaction_item.transaction_id = @transaction.id
 	end
 	

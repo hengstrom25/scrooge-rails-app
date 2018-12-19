@@ -3,7 +3,7 @@
 <%= form_for @transaction_item, url: transaction_transaction_items_url(@transaction_item, :transaction_id => @transaction.id) do |f| %>
 	
 	<p>Select Item Type:
-	<%= f.collection_select :item_id, Item.all, :id, :name%></p><br>
+	<%= f.collection_select :item_id, @items, :id, :name%></p><br>
 	
 	<%= f.label :quantity %><br>
 	<%= f.number_field :quantity %><br><br>

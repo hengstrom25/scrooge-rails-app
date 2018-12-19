@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
 	def index
-		@items = Item.all
+		@items = Item.order('name ASC')
 	end
 	
 	def new
@@ -10,14 +10,14 @@ class ItemsController < ApplicationController
 	
 	def create
 		@budget = Budget.find_by(id: params[:budget_id])
-		@item = Item.create#(item_params)
-		redirect_to budgets_path(@budget)
+		@item = Item.create(item_params)
+		redirect_to items_path
 	end
 	
 	private
 	
-	#def item_params
-		#params.require(:item).permit(:name)
-	#end
+	def item_params
+		params.require(:item).permit(:name)
+	end
 
 end
