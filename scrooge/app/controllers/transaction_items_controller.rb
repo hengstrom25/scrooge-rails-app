@@ -8,8 +8,14 @@ class TransactionItemsController < ApplicationController
 	end
 	
 	def create
-		@transaction_item = TransactionItem.create(transaction_item_params)
+		@transaction = Transaction.find_by(id: params[:transaction_id])
+		if @transaction.transaction_items.create(transaction_item_params)
+			redirect_to transaction_path(@transaction)
+		else
+			render 'new'
+		end
 	end
+			
 	
 	private
 	

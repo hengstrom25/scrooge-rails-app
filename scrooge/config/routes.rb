@@ -19,11 +19,11 @@ delete 'logout' => 'sessions#destroy'
 	end
 
 	resources :transactions do
-		resources :items
+		#resources :items
 		resources :transaction_items
 	end
 	
-	#resources :items
+	resources :items
 	
 
 end

@@ -1,7 +1,7 @@
 class TransactionsController < ApplicationController
 require 'pry'
 	def index
-		@transactions = Transaction.where(params[:budget_id])
+		@transactions = Transaction.where(budget_id: params[:budget_id])
 		#changed search to only use :budget_id params
 		@budget = Budget.find_by(id: params[:budget_id])
 	end
