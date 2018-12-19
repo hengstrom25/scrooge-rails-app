@@ -19,4 +19,6 @@ require 'pry'
 		end
 		amt
 	end
+	
+
 end

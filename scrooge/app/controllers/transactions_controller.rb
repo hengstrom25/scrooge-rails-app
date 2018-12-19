@@ -1,4 +1,5 @@
 class TransactionsController < ApplicationController
+before_action :logged_in?
 require 'pry'
 	def index
 		@transactions = Transaction.where(budget_id: params[:budget_id])
@@ -48,7 +49,7 @@ require 'pry'
 	private
 	
 	def transaction_params
-		params.require(:transaction).permit(:category, :date, :amount, :description, :budget_id, :is_deposit, :category_id) #category_ids:[], categories_attributes: [:name])
+		params.require(:transaction).permit(:category, :date, :amount, :description, :budget_id, :is_deposit)
 	end
 
 end

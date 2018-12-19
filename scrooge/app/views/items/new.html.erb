@@ -1,7 +1,20 @@
 <%= form_for @item do |f| %>
+
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <p>Please see following errors:</p>
+      <ul>
+        <% @item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 	
+	<div class="field<%= ' field_with_errors' if @item.errors[:name].any? %>">
 	<%= f.label :name %><br>
 	<%= f.text_field :name %><br><br>
+	</div>
 	
 	<%= f.submit %>
 	

@@ -1,9 +1,10 @@
 class TransactionItemsController < ApplicationController
+before_action :logged_in?
 
 	def new
 		@transaction_item = TransactionItem.new
 		@transaction = Transaction.find_by(id: params[:transaction_id])
-		@items = Item.order('name ASC')
+		@items = Item.all.alphabetical
 		@transaction_item.transaction_id = @transaction.id
 	end
 	

@@ -1,15 +1,32 @@
 
 <%= form_for @transaction do |f| %>
+
+  <% if @transaction.errors.any? %>
+    <div id="error_explanation">
+      <p>Please see following errors:</p>
+      <ul>
+        <% @transaction.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 	
+	<div class="field<%= ' field_with_errors' if @transaction.errors[:date].any? %>">	
 	<%= f.label :date %><br>
 	<%= f.date_field :date %><br><br>
+	</div>
 	
+	<div class="field<%= ' field_with_errors' if @transaction.errors[:amount].any? %>">		
 	<%= f.label :amount %><br>
 	<%= f.number_field :amount %><br><br>
+	</div>
 	
+	<div class="field<%= ' field_with_errors' if @transaction.errors[:description].any? %>">			
 	<%= f.label :description %><br>
 	<%= f.text_field :description %><br><br>
-	
+	</div>
+
 	<%= f.label :is_deposit, 'Check if deposit' %><br>
 	<%= f.check_box :is_deposit %><br><br>
 	
