@@ -1,24 +1,8 @@
 # # scrooge-rails-app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Flatiron School Rails Portfolio Project
 
-* Ruby version
+This is a budget app that helps a user keep track of spending, deposits, and transactions.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To run, clone onto your local environment, run bundle install, and run your server.
