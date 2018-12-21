@@ -12,7 +12,7 @@
     </div>
   <% end %>
 	
-	<div class="field<%= ' field_with_errors' if @transaction.errors[:date].any? %>">	
+	<div class="field<%= ' field_with_errors' if @transaction.errors[:date].any? %>">
 	<%= f.label :date %><br>
 	<%= f.date_field :date %><br><br>
 	</div>

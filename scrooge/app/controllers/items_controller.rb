@@ -10,9 +10,12 @@ before_action :logged_in?
 	end
 	
 	def create
-		@budget = Budget.find_by(id: params[:budget_id])
-		@item = Item.create(item_params)
-		redirect_to items_path
+		@item = Item.new(item_params)
+		if @item.save
+			redirect_to items_path
+		else
+			render 'new'
+		end
 	end
 	
 	private
@@ -22,3 +25,5 @@ before_action :logged_in?
 	end
 
 end
+
+		
