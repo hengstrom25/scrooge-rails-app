@@ -1,0 +1,10 @@
+<h2>Big Transactions</h2>
+	<% @transactions.each do |transaction| %>
+	<p><%= transaction.description %></p>
+	<p><%= transaction.amount%></p>
+	<ul>
+	<% transaction.items.each do |item| %> 
+		<li><%= item.name %></li>
+	<% end %>
+	</ul>
+	<% end %>

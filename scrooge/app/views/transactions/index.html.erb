@@ -15,7 +15,7 @@
 	<p></p>
 	<h3>Current Balance: <%=@budget.current_amount%></h3>
 	<p>
-	<p><%= link_to "Add Transaction", new_transaction_path(:budget_id => @budget.id) %></p>
+	<p><%= link_to "Add Transaction", new_budget_transaction_path(@budget) %></p>
 	
 	<p><%= link_to "Back to Budget", budget_path(@budget.id)%></p>
 

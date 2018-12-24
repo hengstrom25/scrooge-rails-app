@@ -10,7 +10,9 @@ before_action :logged_in?
 	
 	def create
 		@transaction = Transaction.find_by(id: params[:transaction_id])
-		if @transaction.transaction_items.create(transaction_item_params)
+		@items = Item.all.alphabetical
+		@transaction_item = @transaction.transaction_items.new(transaction_item_params)
+		if @transaction_item.save
 			redirect_to transaction_path(@transaction)
 		else
 			render 'new'

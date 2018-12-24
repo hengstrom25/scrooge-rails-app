@@ -21,6 +21,9 @@ require 'pry'
 	
 	def create
 		@transaction = Transaction.new(transaction_params)
+		@budget = Budget.find_by(id: params[:transaction][:budget_id])
+		@items = Item.all
+		#@transaction.budget_id = @budget.id
 		if @transaction.save
 			redirect_to transactions_path(@budget, :budget_id => params[:transaction][:budget_id])
 		else
@@ -37,6 +40,10 @@ require 'pry'
 		@transaction = Transaction.find_by(id: params[:id])
 		@transaction.update(transaction_params)
 		redirect_to transactions_path(@budget, :budget_id => params[:transaction][:budget_id])
+	end
+	
+	def big
+		@transactions = Transaction.all.big
 	end
 	
 	def destroy

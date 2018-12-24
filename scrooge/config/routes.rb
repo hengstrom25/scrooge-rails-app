@@ -25,5 +25,7 @@ delete 'logout' => 'sessions#destroy'
 	
 	resources :items
 	
+	get '/big' => 'transactions#big'
+	
 
 end
